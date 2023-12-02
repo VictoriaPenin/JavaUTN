@@ -25,5 +25,8 @@ public class Tecnico {
     private String dispoTecnico;
     private final LocalDate altaTecnico = LocalDate.now();
     private String estadoTecnico;
+    private String email;
+
+
 }
 
