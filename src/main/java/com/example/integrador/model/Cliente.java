@@ -11,7 +11,7 @@ import lombok.Data;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private int id;
     private String razonSocial;
     private String cuit;
     private String telefono;

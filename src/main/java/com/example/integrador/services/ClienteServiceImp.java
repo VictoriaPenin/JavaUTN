@@ -31,9 +31,8 @@ public class ClienteServiceImp implements ClienteService{
         return null;
     }
 
-
     @Override
-    public Cliente modificarCliente(String id, Cliente cliente){
+    public Cliente modificarCliente(int id, Cliente cliente){
         Cliente clienteExistente = clienteRepository.findById(id).orElse(null);
 
         if(clienteExistente != null){

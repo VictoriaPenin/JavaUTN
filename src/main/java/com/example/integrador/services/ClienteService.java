@@ -11,5 +11,7 @@ public interface ClienteService {
 
     Cliente modificarCliente(Cliente cliente);
 
-    Cliente modificarCliente(String id, Cliente cliente);
+
+
+    Cliente modificarCliente(int id, Cliente cliente);
 }
