@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Incidente</title>
+</head>
+<body>
+<h2>Formulario de Incidente</h2>
+
+<form action="/registrar-incidente" method="post" th:object="${incidenteFormulario}">
+    <label for="cuitCliente">CUIT Cliente:</label>
+    <input type="text" id="cuitCliente" name="cuitCliente" required><br>
+
+    <label for="servicio">Servicio:</label>
+    <input type="text" id="servicio" name="servicio" required><br>
+
+    <label for="descripcionProblema">Descripción del Problema:</label>
+    <textarea id="descripcionProblema" name="descripcionProblema" required></textarea><br>
+
+    <label for="tipoProblema">Tipo de Problema:</label>
+    <input type="text" id="tipoProblema" name="tipoProblema" required><br>
+
+    <label for="esComplejo">¿Es un problema complejo?</label>
+    <input type="checkbox" id="esComplejo" name="esComplejo"><br>
+
+    <button type="submit">Registrar Incidente</button>
+</form>
+
+<!-- Aquí puedes mostrar la información cargada en la base de datos -->
+</body>
+</html>
