@@ -7,8 +7,7 @@
 <div class="container">
   <h2 class="mt-5">Soy Cliente</h2>
 
-  <!-- Formulario para registrar incidentes -->
-  <form th:action="@{/cliente}" th:object="${incidenteFormulario}" method="post">
+  <form th:action="@{/formularioIncidente}" th:object="${incidenteFormulario}" method="post">
     <!-- Agrega los campos del formulario según sea necesario -->
     <label for="descripcionProblema">Descripción del Problema:</label>
     <textarea id="descripcionProblema" name="descripcionProblema" required th:field="*{descripcionProblema}"></textarea><br>
@@ -18,6 +17,7 @@
 
     <button type="submit">Registrar Incidente</button>
   </form>
+
 
   <!-- Lista de incidentes del cliente -->
   <h3 class="mt-4">Lista de Incidentes</h3>
