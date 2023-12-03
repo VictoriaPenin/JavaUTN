@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Agrega las etiquetas head según sea necesario -->
+</head>
+<body>
+<div class="container">
+  <h2 class="mt-5">Soy Cliente</h2>
+
+  <!-- Formulario para registrar incidentes -->
+  <form th:action="@{/cliente}" th:object="${incidenteFormulario}" method="post">
+    <!-- Agrega los campos del formulario según sea necesario -->
+    <label for="descripcionProblema">Descripción del Problema:</label>
+    <textarea id="descripcionProblema" name="descripcionProblema" required th:field="*{descripcionProblema}"></textarea><br>
+
+    <label for="tipoProblema">Tipo de Problema:</label>
+    <input type="text" id="tipoProblema" name="tipoProblema" required th:field="*{tipoProblema}"><br>
+
+    <button type="submit">Registrar Incidente</button>
+  </form>
+
+  <!-- Lista de incidentes del cliente -->
+  <h3 class="mt-4">Lista de Incidentes</h3>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Descripción del Problema</th>
+      <th>Tipo de Problema</th>
+      <!-- Agrega más columnas según sea necesario -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Itera sobre la lista de incidentes y muestra los detalles -->
+    <tr th:each="incidente : ${incidentes}">
+      <td th:text="${incidente.idIncidente}"></td>
+      <td th:text="${incidente.descripcionProblema}"></td>
+      <td th:text="${incidente.tipoProblema}"></td>
+      <!-- Agrega más celdas según sea necesario -->
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Agrega las etiquetas script y link según sea necesario -->
+</body>
+</html>

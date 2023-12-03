@@ -1,7 +1,10 @@
 package com.example.integrador.controllers;
 
+import ch.qos.logback.core.model.Model;
 import com.example.integrador.model.Cliente;
+import com.example.integrador.model.IncidenteFormulario;
 import com.example.integrador.services.ClienteService;
+import com.example.integrador.services.IncidenteService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +20,12 @@ public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
+    private final IncidenteService incidenteService;
+
+    public ClienteController(IncidenteService incidenteService) {
+        this.incidenteService = incidenteService;
+    }
+
 
     @GetMapping("/listar")
     public ResponseEntity<List<Cliente>> listarClientes() {
@@ -53,4 +62,27 @@ public class ClienteController {
         } catch (EntityNotFoundException ex) {
             return ResponseEntity.notFound().build();
         }
-}}
+    }
+
+        @GetMapping("/cliente")
+        public String mostrarFormularioIncidente(Model model) {
+            // Pasa un objeto vacío de IncidenteFormulario para el formulario de creación
+            model.addText("incidenteFormulario");
+
+            // Pasa la lista de incidentes del cliente al modelo
+            // Aquí debes tener un método en tu servicio para obtener los incidentes del cliente actual
+            model.addText("incidentes");
+
+            return "cliente/index";
+        }
+
+        @PostMapping("/cliente/registrar-incidente")
+        public String registrarIncidente(@ModelAttribute IncidenteFormulario incidenteFormulario) {
+            // Aquí debes tener un método en tu servicio para registrar el incidente
+            incidenteService.registrarIncidente(incidenteFormulario);
+
+            // Redirige a la página del cliente después de registrar el incidente
+            return "redirect:/cliente";
+        }
+
+}

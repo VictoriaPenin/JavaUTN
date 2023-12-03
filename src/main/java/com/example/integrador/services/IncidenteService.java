@@ -2,6 +2,7 @@ package com.example.integrador.services;
 
 import com.example.integrador.model.Cliente;
 import com.example.integrador.model.Incidente;
+import com.example.integrador.model.IncidenteFormulario;
 import com.example.integrador.model.Tecnico;
 import com.example.integrador.repositories.IncidenteRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -91,6 +92,13 @@ public class IncidenteService {
         // Implementa la lógica para obtener los incidentes asignados
         List<Incidente> incidentesAsignados = incidenteRepository.findByEstado("Asignado");
         return incidentesAsignados != null ? incidentesAsignados : new ArrayList<>();
+    }
+
+    public Object obtenerIncidentesDelClienteActual() {
+        return null;
+    }
+
+    public void registrarIncidente(IncidenteFormulario incidenteFormulario) {
     }
     // ... (otros métodos anteriores)
 }

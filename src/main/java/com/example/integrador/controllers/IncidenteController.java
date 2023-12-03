@@ -1,5 +1,6 @@
 package com.example.integrador.controllers;
 
+import ch.qos.logback.core.model.Model;
 import com.example.integrador.model.Incidente;
 import com.example.integrador.model.IncidenteFormulario;
 import com.example.integrador.services.IncidenteService;
@@ -17,6 +18,13 @@ public class IncidenteController {
 
     @Autowired
     private IncidenteService incidenteService;
+
+    @GetMapping("/index")
+    public String mostrarFormularioIncidente(Model model) {
+        // Puedes inicializar el objeto incidenteFormulario aquí si es necesario
+        model.addText("incidenteFormulario");
+        return "index";
+    }
 
     @GetMapping("/asignados")
     public List<Incidente> obtenerIncidentesAsignados() {
