@@ -8,25 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class TecnicoServiceImpl extends TecnicoService {
+
+public class TecnicoServiceImpl{
 
 
-            @Autowired
-            private TecnicoRepository tecnicoRepository;
 
-    @Override
-    public Tecnico altaTecnico(Tecnico tecnico) {
-        return tecnicoRepository.save(tecnico);
-    }
-
-    @Override
-    public int calcularTiempoEstimado(boolean esComplejo, String tipoProblema) {
-        return 0;
-    }
-
-    @Override
-    public List<Tecnico> obtenerTecnicosDisponibles(String servicio, String tipoProblema) {
-        return null;
-    }
 }

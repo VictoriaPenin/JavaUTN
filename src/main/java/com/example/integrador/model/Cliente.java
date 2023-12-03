@@ -22,5 +22,4 @@ public class Cliente {
     private String domicilio;
     private String email;
 
-
 }

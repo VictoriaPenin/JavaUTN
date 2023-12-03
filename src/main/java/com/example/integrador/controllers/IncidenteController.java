@@ -1,25 +1,36 @@
 package com.example.integrador.controllers;
 
+import com.example.integrador.model.Incidente;
 import com.example.integrador.model.IncidenteFormulario;
+import com.example.integrador.services.IncidenteService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
-@RequestMapping("/")
+import java.util.List;
+
+// En IncidenteController
+@RestController
+@RequestMapping("/incidentes")
 public class IncidenteController {
 
-    @GetMapping("/")
-    public String mostrarFormulario() {
-        return "incidente-form";
+    @Autowired
+    private IncidenteService incidenteService;
+
+    @GetMapping("/asignados")
+    public List<Incidente> obtenerIncidentesAsignados() {
+        return incidenteService.obtenerIncidentesAsignados();
     }
 
-    @PostMapping("/registrar-incidente")
-    public String registrarIncidente(@ModelAttribute("incidenteFormulario") IncidenteFormulario incidenteFormulario) {
-        // Lógica de procesamiento y almacenamiento en la base de datos
-        return "redirect:/incidente-form";
+    @GetMapping("/{id}")
+    public ResponseEntity<Incidente> obtenerIncidentePorId(@PathVariable int id) {
+        return ResponseEntity.ok(incidenteService.obtenerIncidentePorId(id));
     }
 
+    @PostMapping("/crear")
+    public ResponseEntity<Incidente> guardarIncidente(@RequestBody Incidente incidente) {
+        incidenteService.guardarIncidente(incidente);
+        return ResponseEntity.ok(incidente);
+    }
 }

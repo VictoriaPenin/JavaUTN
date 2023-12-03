@@ -31,6 +31,7 @@ public class Incidente {
 
     private String estado;
     private String consideracionesResolucion;
-    private String tiempoEstimado;
+    private int tiempoEstimado;
+    private String servicio;
 
 }
