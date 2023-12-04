@@ -37,21 +37,17 @@ public class IncidenteService {
         incidente.setDescripcionProblema(descripcion);
         incidente.setTipoProblema(tipoProblema);
 
-        // Lógica para obtener técnicos disponibles
         List<Tecnico> tecnicosDisponibles = tecnicoService.obtenerTecnicosDisponibles(servicio, tipoProblema);
 
-        // Asignar técnico (puedes implementar tu lógica de asignación)
         Tecnico tecnicoAsignado = tecnicosDisponibles.get(0); // Aquí necesitarás tu lógica
 
         incidente.setTecnicoAsignado(tecnicoAsignado);
 
-        // Lógica para estimar tiempo de resolución
         int tiempoEstimado = tecnicoService.estimarTiempoResolucion(tecnicoAsignado, tipoProblema);
         incidente.setTiempoEstimado(tiempoEstimado);
 
         incidenteRepository.save(incidente);
 
-        // Lógica para enviar notificación al técnico
         tecnicoService.enviarNotificacionNuevoIncidente(tecnicoAsignado, incidente);
     }
 
@@ -100,5 +96,4 @@ public class IncidenteService {
 
     public void registrarIncidente(IncidenteFormulario incidenteFormulario) {
     }
-    // ... (otros métodos anteriores)
 }

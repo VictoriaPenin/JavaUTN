@@ -21,7 +21,6 @@ public class IncidenteController {
 
     @GetMapping("/index")
     public String mostrarFormularioIncidente(Model model) {
-        // Puedes inicializar el objeto incidenteFormulario aquí si es necesario
         model.addText("incidenteFormulario");
         return "index";
     }

@@ -21,10 +21,7 @@ public class FormularioIncidenteController {
 
     @PostMapping("/formularioIncidente.html")
     public String procesarFormularioIncidente(@ModelAttribute IncidenteFormulario incidenteFormulario, Model model) {
-        // Aquí puedes procesar el formulario, por ejemplo, guardar los datos en la base de datos
-        // y luego redirigir a una página de éxito o volver a mostrar el formulario con mensajes de éxito
 
-        // Por ahora, solo redirigir a la misma página (puedes cambiar esto según tus necesidades)
         return "formularioIncidente";
     }
 }

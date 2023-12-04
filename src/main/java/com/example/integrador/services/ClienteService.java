@@ -28,7 +28,6 @@ public class ClienteService {
         Cliente clienteExistente = clienteRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Cliente no encontrado con ID: " + id));
 
-        // Asegúrate de que solo ciertos campos sean modificables según tus reglas de negocio
         clienteExistente.setTelefono(cliente.getTelefono());
         clienteExistente.setDomicilio(cliente.getDomicilio());
 

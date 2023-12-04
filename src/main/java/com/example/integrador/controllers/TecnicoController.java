@@ -42,13 +42,10 @@ public class TecnicoController {
         return ResponseEntity.ok(tecnicosDisponibles);
     }
 
-    // Otros métodos del controlador...
 
-    // Manejo de excepciones para otros posibles casos
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResponseEntity<String> handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
         return ResponseEntity.badRequest().body("Parámetro incorrecto: " + ex.getName());
     }
 
-    // Otros manejadores de excepciones según sea necesario
 }

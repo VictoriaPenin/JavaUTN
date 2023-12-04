@@ -14,7 +14,6 @@ public class IndexController {
 
     @GetMapping("/cliente")
     public String mostrarVistaCliente(Model model) {
-        // Lógica para cargar datos si es necesario
         return "cliente/index";
     }
 

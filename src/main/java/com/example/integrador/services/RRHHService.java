@@ -13,7 +13,6 @@ public class RRHHService {
     private IncidenteService incidenteService;
 
     public List<Incidente> generarReporteDiario() {
-        // Obtener incidentes asignados a cada técnico
         return incidenteService.obtenerIncidentesAsignados();
     }
 }

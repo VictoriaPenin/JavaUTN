@@ -66,11 +66,9 @@ public class ClienteController {
 
         @GetMapping("/cliente")
         public String mostrarFormularioIncidente(Model model) {
-            // Pasa un objeto vacío de IncidenteFormulario para el formulario de creación
             model.addText("incidenteFormulario");
 
-            // Pasa la lista de incidentes del cliente al modelo
-            // Aquí debes tener un método en tu servicio para obtener los incidentes del cliente actual
+
             model.addText("incidentes");
 
             return "cliente/index";
@@ -78,10 +76,8 @@ public class ClienteController {
 
         @PostMapping("/cliente/registrar-incidente")
         public String registrarIncidente(@ModelAttribute IncidenteFormulario incidenteFormulario) {
-            // Aquí debes tener un método en tu servicio para registrar el incidente
             incidenteService.registrarIncidente(incidenteFormulario);
 
-            // Redirige a la página del cliente después de registrar el incidente
             return "redirect:/cliente";
         }
 
